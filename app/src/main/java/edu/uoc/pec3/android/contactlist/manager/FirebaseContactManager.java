@@ -36,7 +36,7 @@ public class FirebaseContactManager {
      * Constructor
      */
     private FirebaseContactManager() {
-        // init Firebase reference
+        // Creates the Firebase database referencte.
         firebaseContactRef = new Firebase("https://burning-fire-1164.firebaseio.com/contacts");
     }
 

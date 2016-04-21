@@ -70,4 +70,9 @@ public class Contact {
     public String getCity() {
         return city;
     }
+
+    @Override
+    public String toString() {
+        return "Contact: " + name + "\n";
+    }
 }
