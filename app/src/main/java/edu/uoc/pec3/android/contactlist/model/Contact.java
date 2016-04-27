@@ -1,5 +1,8 @@
 package edu.uoc.pec3.android.contactlist.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by mgarcia on 23/03/2016.
  */

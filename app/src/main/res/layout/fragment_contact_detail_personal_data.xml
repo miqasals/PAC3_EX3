@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contact_detail_personal_data_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+        <!-- TODO: Add all personal data elements from jSon.
+            - Gender
+            - Birthday
+            - email
+            - phone (with call service??)
+            - City
+            - Country
+            - Updated
+            - Created
+            -->

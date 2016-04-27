@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.uoc.pec3.android.contactlist.views.ContactDetail">
+
+
+    <ImageView
+        android:layout_width="@dimen/contact_detail_image"
+        android:layout_height="@dimen/contact_detail_image"
+        android:id="@+id/contact_detail_image"
+        android:contentDescription="@string/user_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:src="@drawable/contact_image_example" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/contact_detail_name"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/contact_detail_image"
+        android:layout_toEndOf="@+id/contact_detail_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/contact_detail_image"
+        android:gravity="center|start"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="@dimen/contact_detail_name_text" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/contact_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/contact_detail_image" >
+
+        <android.support.v4.view.PagerTitleStrip
+            android:id="@+id/pager_title_strip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/uoc_color"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:textColor="#FFF"/>
+
+
+
+    </android.support.v4.view.ViewPager>
+
+
+    <!-- TODO: Create a landscape layout for adequate the information visibility -->
+
+
+</RelativeLayout>

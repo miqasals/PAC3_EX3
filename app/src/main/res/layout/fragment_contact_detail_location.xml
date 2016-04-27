@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <!-- Test view -->
+    <TextView
+        android:id="@+id/location_fragemnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOCATION FRAGMENT"/>
+
+    <!-- TODO: Create the map fragment and implement the location of the contact -->
+
+</LinearLayout>

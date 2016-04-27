@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:id="@+id/item_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center|start"
+        android:textStyle="italic"
+        android:layout_margin="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:id="@+id/item_txt"
+        android:gravity="center|end"
+        android:layout_below="@+id/item_title"
+        android:layout_alignLeft="@+id/item_title"
+        android:layout_alignStart="@+id/item_title"
+        android:textColor="@color/material_grey_800" />
+
+    <!-- TODO: Control the max lenght of the line -->
+</RelativeLayout>

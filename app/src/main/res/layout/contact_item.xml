@@ -8,10 +8,9 @@
     <ImageView
         android:id="@+id/contact_list_image"
         android:contentDescription="@string/user_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start|center"
-        android:layout_margin="4dp" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="start|center" />
 
     <TextView
         android:id="@+id/contact_list_name"
@@ -19,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_margin="4dp"
-        android:textSize="25sp"
-        android:text="User Name" />
+        android:textSize="25sp" />
+
+    <!-- TODO: check the image margins. -->
 
 </LinearLayout>

@@ -1,13 +1,19 @@
 package edu.uoc.pec3.android.contactlist.views;
 
+import android.app.Application;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import edu.uoc.pec3.android.contactlist.Adapters.ContactListAdapter;
+import edu.uoc.pec3.android.contactlist.adapters.ContactListAdapter;
 import edu.uoc.pec3.android.contactlist.R;
 import edu.uoc.pec3.android.contactlist.manager.FirebaseContactManager;
 import edu.uoc.pec3.android.contactlist.model.Contact;
@@ -32,14 +38,48 @@ public class ContactsList extends AppCompatActivity {
         ListView mListView = (ListView) findViewById(R.id.contact_list);
 
         // Define the array values from FireBaseContactManager.
-        ArrayList<Contact> contacts = new ArrayList<>(FirebaseContactManager.getInstance().getAllContacts());
+        final ArrayList<Contact> contacts = new ArrayList<>(FirebaseContactManager.getInstance().getAllContacts());
 
-        Log.i("///////////////////////", contacts.toString());
 
         // Init adapter and pupulates the view.
-        ContactListAdapter contactListAdapter = new ContactListAdapter(this, contacts);
+        ContactListAdapter contactListAdapter = new ContactListAdapter(this, R.id.contact_list, contacts);
         mListView.setAdapter(contactListAdapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getBaseContext(), ContactDetail.class);
+                intent.putExtra("contactId", contacts.get(position).getObjectId());
+                startActivity(intent);
+            }
+        });
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you really want to close the application?")
+                .setTitle("Exit application")
+                .setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent a = new Intent(Intent.ACTION_MAIN);
+                                a.addCategory(Intent.CATEGORY_HOME);
+                                a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(a);
+                            }
+                        })
+                .setNegativeButton("NO",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }
+                );
 
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }
