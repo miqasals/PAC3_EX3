@@ -10,7 +10,8 @@
         android:contentDescription="@string/user_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_gravity="start|center" />
+        android:layout_gravity="start|center"
+        android:padding="2dp" />
 
     <TextView
         android:id="@+id/contact_list_name"

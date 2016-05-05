@@ -6,16 +6,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import edu.uoc.pec3.android.contactlist.R;
 import edu.uoc.pec3.android.contactlist.adapters.PersonalDataListAdapter;
 import edu.uoc.pec3.android.contactlist.model.Contact;
-import edu.uoc.pec3.android.contactlist.model.GeoLocation;
 
 /**
  * Created by Miquel Casals on 21/04/2016.
@@ -35,6 +36,12 @@ public class ContactDetailPageFragment extends Fragment {
     public static final String DESCRIPTION  ="description";
     public static final String CONTACT_DATA = "contactData";
 
+
+    public static final String ZOOM = "zoom=8";
+    public static final String KEY = "key=AIzaSyCHsdIAUDE47DHt5pbmLoQkIY6OprOA5fE";
+    public static final String TYPE = "maptype=terrain";
+
+
     /**
      * The fragment's page number, which is set to the argument value for
      * {@link #ARG_PAGE}.
@@ -44,7 +51,6 @@ public class ContactDetailPageFragment extends Fragment {
     private Double latitude;
     private String description;
     private ArrayList<String> contactData;
-
 
     // Empty constructor.
     public ContactDetailPageFragment() {
@@ -125,6 +131,16 @@ public class ContactDetailPageFragment extends Fragment {
                 // Location
                 rootView  = (ViewGroup) inflater
                         .inflate(R.layout.fragment_contact_detail_location, container, false);
+                ImageView map = (ImageView) rootView.findViewById(R.id.locationMap);
+
+                String locationTxt = latitude + "," + longitude;
+                String marker = "markers=color:red%7Clabel:S%7C" + locationTxt;
+
+                String url = "https://maps.googleapis.com/maps/api/staticmap?center="
+                        + locationTxt + "&" + ZOOM + "&" + "size=400x400&"
+                        + TYPE + "&" + marker + "&" + KEY;
+
+                Picasso.with(rootView.getContext()).load(url).fit().centerCrop().into(map);
                 break;
             default:
                 rootView  = (ViewGroup) inflater
@@ -133,16 +149,5 @@ public class ContactDetailPageFragment extends Fragment {
         }
 
         return rootView;
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-    }
-
-    public int getmPageNumber() {
-        return mPageNumber;
     }
 }

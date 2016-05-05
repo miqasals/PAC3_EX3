@@ -5,4 +5,5 @@
     <string name="contact_detail_description_title">Description</string>
     <string name="contact_detail_data_title">Personal data</string>
     <string name="contact_detail_personal_data_title">Personal Data</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
