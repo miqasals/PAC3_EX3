@@ -98,9 +98,6 @@ public class PersonalDataListAdapter extends ArrayAdapter<String> {
                 break;
             case 2:         //email
                 viewHolder.txt.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-                /*if ((personalDataTxt.get(position).length() > 25)) {
-                    viewHolder.txt.setTextSize(18);
-                }*/
                 viewHolder.setText(personalDataTitle.get(position), personalDataTxt.get(position));
                 break;
             case 3:         //phone

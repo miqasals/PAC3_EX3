@@ -104,7 +104,6 @@ public class ContactDetailPageFragment extends Fragment {
         ViewGroup rootView;
         /**
          * Depending the page number inflates the view that corresponds.
-         * TODO: How to send and recive the arguments?
          */
         switch (mPageNumber){
             case 0:
