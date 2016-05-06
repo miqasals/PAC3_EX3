@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.ParseException;
@@ -68,6 +69,7 @@ public class PersonalDataListAdapter extends ArrayAdapter<String> {
             convertView = LayoutInflater.from(context).inflate(R.layout.contact_detail_data_item, parent, false);
             viewHolder.title = (TextView) convertView.findViewById(R.id.item_title);
             viewHolder.txt = (TextView) convertView.findViewById(R.id.item_txt);
+            viewHolder.btn = (ImageButton) convertView.findViewById(R.id.callButton);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -103,6 +105,7 @@ public class PersonalDataListAdapter extends ArrayAdapter<String> {
             case 3:         //phone
                 viewHolder.txt.setInputType(InputType.TYPE_CLASS_PHONE);
                 viewHolder.setText(personalDataTitle.get(position), personalDataTxt.get(position));
+                viewHolder.btn.setVisibility(View.VISIBLE);
                 break;
             case 6:         //updateAt
                 viewHolder.txt.setInputType(InputType.TYPE_CLASS_DATETIME);
@@ -124,6 +127,7 @@ public class PersonalDataListAdapter extends ArrayAdapter<String> {
     static class ViewHolder {
         protected TextView title;
         protected TextView txt;
+        protected ImageButton btn;
 
         protected void setText(String title, String txt){
             this.title.setText(title);

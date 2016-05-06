@@ -13,7 +13,11 @@
         android:layout_alignParentStart="true"
         android:gravity="center|start"
         android:textStyle="italic"
-        android:layout_margin="2dp" />
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toLeftOf="@+id/callButton"
+        android:layout_toStartOf="@+id/callButton" />
 
     <TextView
         android:layout_width="match_parent"
@@ -24,6 +28,23 @@
         android:layout_below="@+id/item_title"
         android:layout_alignLeft="@+id/item_title"
         android:layout_alignStart="@+id/item_title"
-        android:textColor="@color/material_grey_800" />
+        android:textColor="@color/material_grey_800"
+        android:layout_toLeftOf="@+id/callButton"
+        android:layout_toStartOf="@+id/callButton" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/callButton"
+        android:layout_alignBottom="@+id/item_txt"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_phone_white"
+        android:layout_alignParentTop="true"
+        android:background="#81c784"
+        android:padding="4dp"
+        android:visibility="gone" />
+
+    <!-- TODO: Create an image for the call button -->
 
 </RelativeLayout>

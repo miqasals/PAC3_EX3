@@ -27,8 +27,6 @@ import edu.uoc.pec3.android.contactlist.model.Contact;
  */
 public class ContactsList extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,4 +80,15 @@ public class ContactsList extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    /**
+     * TODO: Implement actionBar and add the "new user" icon
+     * TODO: Implement the new user function
+     * TODO: Create the user data request layout.
+     * This layout must:
+     *  - Check the format of the data introduced on EditText.
+     *  - Contain a button for get a picture from the camera
+     *  - Conatin a button for get the location ¿¿¿???? (a new map activity with an acceptance button?)
+     * TODO: Indicate the source of the onBackPressed() method code.
+     */
+
 }
