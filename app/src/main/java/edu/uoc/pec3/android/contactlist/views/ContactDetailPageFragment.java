@@ -38,7 +38,7 @@ public class ContactDetailPageFragment extends Fragment {
 
 
     public static final String ZOOM = "zoom=8";
-    public static final String KEY = "key=AIzaSyCHsdIAUDE47DHt5pbmLoQkIY6OprOA5fE";
+    public static final String KEY = "key=AIzaSyBe9pjZCcG3UcJJ4Bi_2E2A15WNdGAOopg";
     public static final String TYPE = "maptype=terrain";
 
 

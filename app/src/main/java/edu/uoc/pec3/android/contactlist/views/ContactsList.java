@@ -1,5 +1,6 @@
 package edu.uoc.pec3.android.contactlist.views;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +8,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,7 +41,6 @@ public class ContactsList extends AppCompatActivity {
         // Define the array values from FireBaseContactManager.
         final ArrayList<Contact> contacts = new ArrayList<>(FirebaseContactManager.getInstance().getAllContacts());
 
-
         // Init adapter and pupulates the view.
         ContactListAdapter contactListAdapter = new ContactListAdapter(this, R.id.contact_list, contacts);
         mListView.setAdapter(contactListAdapter);
@@ -53,6 +55,29 @@ public class ContactsList extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.addUser:
+                // If the "new user" button is pressed it starts the new contact Activity.
+                Intent i = new Intent(this, NewContact.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -62,6 +87,10 @@ public class ContactsList extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                /**
+                                 * Finish the application. Source of the sample:.
+                                 * http://stackoverflow.com/questions/3141996/android-how-to-override-the-back-button-so-it-doesnt-finish-my-activity
+                                 */
                                 Intent a = new Intent(Intent.ACTION_MAIN);
                                 a.addCategory(Intent.CATEGORY_HOME);
                                 a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -81,14 +110,12 @@ public class ContactsList extends AppCompatActivity {
         dialog.show();
     }
     /**
-     * TODO: Implement actionBar and add the "new user" icon
      * TODO: Implement the new user function
      * TODO: Create the user data request layout.
      * This layout must:
      *  - Check the format of the data introduced on EditText.
      *  - Contain a button for get a picture from the camera
      *  - Conatin a button for get the location ¿¿¿???? (a new map activity with an acceptance button?)
-     * TODO: Indicate the source of the onBackPressed() method code.
      */
 
 }

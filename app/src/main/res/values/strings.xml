@@ -6,4 +6,6 @@
     <string name="contact_detail_data_title">Personal data</string>
     <string name="contact_detail_personal_data_title">Personal Data</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_new_contact">New Contact</string>
+    <string name="google_api_key">AIzaSyCHsdIAUDE47DHt5pbmLoQkIY6OprOA5fE</string>
 </resources>
