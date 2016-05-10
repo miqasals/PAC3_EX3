@@ -3,6 +3,7 @@ package edu.uoc.pec3.android.contactlist.views;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -120,5 +122,17 @@ public class ContactDetail extends FragmentActivity {
             }
         }
 
+    }
+
+
+    /**
+     *
+     */
+    public void call(View view){
+        Uri tel = Uri.parse("tel:" + contact.getPhone());
+        Intent intent = new Intent(Intent.ACTION_DIAL, tel);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }

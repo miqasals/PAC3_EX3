@@ -10,6 +10,9 @@ public class GeoLocation {
     private Double longitude;
     private Double latitude;
 
+    public GeoLocation() {
+    }
+
     public GeoLocation(LatLng latLng) {
         this.longitude = latLng.longitude;
         this.latitude = latLng.latitude;
@@ -23,5 +26,8 @@ public class GeoLocation {
         return latitude;
     }
 
-
+    @Override
+    public String toString() {
+        return longitude + "," + latitude;
+    }
 }

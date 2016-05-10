@@ -7,128 +7,133 @@
     android:layout_alignParentBottom="true"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true" >
-<RelativeLayout
 
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:padding="@dimen/fab_margin">
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:padding="@dimen/fab_margin">
+
+        <ImageView
+            android:layout_width="@dimen/contact_detail_image"
+            android:layout_height="@dimen/contact_detail_image"
+            android:id="@+id/newContactImage"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/user_image_default"
+            android:paddingBottom="16dp"
+            android:clickable="true"
+            android:onClick="getPicture" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords|textPersonName"
+            android:ems="10"
+            android:id="@+id/newContactName"
+            android:layout_below="@+id/newContactImage"
+            android:hint="Name"
+            android:maxLines="1"
+            android:paddingBottom="16dp"
+            android:layout_alignRight="@+id/newContactBirthday"
+            android:layout_alignEnd="@+id/newContactBirthday" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/newContactBirthday"
+            android:hint="01/01/2016"
+            android:paddingBottom="16dp"
+            android:layout_below="@+id/newContactName"
+            android:layout_alignLeft="@+id/newContactPhone"
+            android:layout_alignStart="@+id/newContactPhone" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/newContactPhone"
+            android:paddingBottom="16dp"
+            android:layout_below="@+id/newContactBirthday"
+            android:layout_centerHorizontal="true"
+            android:hint="(000)-000-0000" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/locationButton"
+            android:src="@drawable/ic_edit_location_black_48dp"
+            android:onClick="getLocation"
+            android:layout_above="@+id/newContactLatLng"
+            android:layout_toLeftOf="@+id/newContactImage"
+            android:layout_toStartOf="@+id/newContactImage"
+            android:layout_below="@+id/newContactEmail" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords|textPersonName"
+            android:ems="8"
+            android:id="@+id/newContactCountry"
+            android:hint="Country"
+            android:paddingBottom="16dp"
+            android:layout_below="@+id/newContactEmail"
+            android:layout_toRightOf="@+id/locationButton"
+            android:layout_alignRight="@+id/newContactEmail"
+            android:layout_alignEnd="@+id/newContactEmail" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords|textPersonName"
+            android:ems="10"
+            android:id="@+id/newContactCity"
+            android:hint="City"
+            android:paddingBottom="16dp"
+            android:layout_below="@+id/newContactCountry"
+            android:layout_toRightOf="@+id/locationButton"
+            android:layout_alignRight="@+id/newContactCountry"
+            android:layout_alignEnd="@+id/newContactCountry" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences|textMultiLine"
+            android:ems="10"
+            android:id="@+id/newContactDescription"
+            android:hint="Description"
+            android:paddingBottom="16dp"
+            android:layout_below="@+id/newContactLatLng"
+            android:layout_alignLeft="@+id/newContactLatLng"
+            android:layout_alignStart="@+id/newContactLatLng" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="latitude , longitude"
+            android:paddingBottom="16dp"
+            android:id="@+id/newContactLatLng"
+            android:textAlignment="center"
+            android:layout_below="@+id/newContactCity"
+            android:layout_alignRight="@+id/newContactCity"
+            android:layout_alignEnd="@+id/newContactCity"
+            android:layout_alignLeft="@+id/newContactEmail"
+            android:layout_alignStart="@+id/newContactEmail" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/newContactEmail"
+            android:hint="e-mail@domain.com"
+            android:layout_below="@+id/newContactPhone"
+            android:layout_alignLeft="@+id/newContactPhone"
+            android:layout_alignStart="@+id/newContactPhone"
+            android:inputType="textEmailAddress" />
 
 
-
-
-
-
-
-    <ImageView
-        android:layout_width="@dimen/contact_detail_image"
-        android:layout_height="@dimen/contact_detail_image"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/user_image_default"
-        android:paddingBottom="16dp"
-        android:clickable="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/newNameTxt"
-        android:layout_below="@+id/imageView"
-        android:hint="Name"
-        android:maxLines="1"
-        android:paddingBottom="16dp"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:hint="01/01/2016"
-        android:paddingBottom="16dp"
-        android:layout_below="@+id/newNameTxt"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:paddingBottom="16dp"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:hint="(000)-000-0000" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/locationButton"
-        android:src="@drawable/ic_edit_location_white_48"
-        android:layout_below="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_alignBottom="@+id/editText4"
-        android:onClick="setLocation" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="8"
-        android:id="@+id/editText3"
-        android:hint="Country"
-        android:paddingBottom="16dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_toLeftOf="@+id/locationButton"
-        android:layout_toStartOf="@+id/locationButton" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText4"
-        android:hint="City"
-        android:paddingBottom="16dp"
-        android:layout_below="@+id/editText3"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_toLeftOf="@+id/locationButton"
-        android:layout_toStartOf="@+id/locationButton" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText5"
-        android:hint="Description"
-        android:paddingBottom="16dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="latitude , longitude"
-        android:paddingBottom="16dp"
-        android:id="@+id/textView"
-        android:layout_below="@+id/editText4"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
-        android:layout_alignRight="@+id/locationButton"
-        android:layout_alignEnd="@+id/locationButton" />
-
-
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>

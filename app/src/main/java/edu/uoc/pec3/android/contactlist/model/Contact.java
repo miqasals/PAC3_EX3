@@ -23,7 +23,6 @@ public class Contact {
     private String city;
 
     public Contact (){
-
     }
 
     public String getUpdatedAt() {

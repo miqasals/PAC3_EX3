@@ -109,13 +109,6 @@ public class ContactsList extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-    /**
-     * TODO: Implement the new user function
-     * TODO: Create the user data request layout.
-     * This layout must:
-     *  - Check the format of the data introduced on EditText.
-     *  - Contain a button for get a picture from the camera
-     *  - Conatin a button for get the location ¿¿¿???? (a new map activity with an acceptance button?)
-     */
+
 
 }
