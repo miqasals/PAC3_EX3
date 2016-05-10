@@ -46,6 +46,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:onClick="call"
+        android:contentDescription="@string/contact_detail_call_button_description"
         android:visibility="gone" />
 
 </RelativeLayout>

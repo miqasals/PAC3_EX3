@@ -9,7 +9,7 @@
     android:layout_alignParentStart="true" >
 
     <RelativeLayout
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="@dimen/fab_margin">
 
@@ -17,6 +17,7 @@
             android:layout_width="@dimen/contact_detail_image"
             android:layout_height="@dimen/contact_detail_image"
             android:id="@+id/newContactImage"
+            android:contentDescription="@string/new_contact_description_contact_new_image"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:src="@drawable/user_image_default"
@@ -31,7 +32,7 @@
             android:ems="10"
             android:id="@+id/newContactName"
             android:layout_below="@+id/newContactImage"
-            android:hint="Name"
+            android:hint="@string/new_contact_hint_name"
             android:maxLines="1"
             android:paddingBottom="16dp"
             android:layout_alignRight="@+id/newContactBirthday"
@@ -43,7 +44,7 @@
             android:inputType="date"
             android:ems="10"
             android:id="@+id/newContactBirthday"
-            android:hint="01/01/2016"
+            android:hint="@string/new_contact_hint_birthday"
             android:paddingBottom="16dp"
             android:layout_below="@+id/newContactName"
             android:layout_alignLeft="@+id/newContactPhone"
@@ -58,11 +59,12 @@
             android:paddingBottom="16dp"
             android:layout_below="@+id/newContactBirthday"
             android:layout_centerHorizontal="true"
-            android:hint="(000)-000-0000" />
+            android:hint="@string/new_contact_hint_phone" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/new_contact_description_location_button"
             android:id="@+id/locationButton"
             android:src="@drawable/ic_edit_location_black_48dp"
             android:onClick="getLocation"
@@ -77,10 +79,11 @@
             android:inputType="textCapWords|textPersonName"
             android:ems="8"
             android:id="@+id/newContactCountry"
-            android:hint="Country"
+            android:hint="@string/new_contact_hint_country"
             android:paddingBottom="16dp"
             android:layout_below="@+id/newContactEmail"
             android:layout_toRightOf="@+id/locationButton"
+            android:layout_toEndOf="@+id/locationButton"
             android:layout_alignRight="@+id/newContactEmail"
             android:layout_alignEnd="@+id/newContactEmail" />
 
@@ -90,10 +93,11 @@
             android:inputType="textCapWords|textPersonName"
             android:ems="10"
             android:id="@+id/newContactCity"
-            android:hint="City"
+            android:hint="@string/new_contact_hint_city"
             android:paddingBottom="16dp"
             android:layout_below="@+id/newContactCountry"
             android:layout_toRightOf="@+id/locationButton"
+            android:layout_toEndOf="@+id/locationButton"
             android:layout_alignRight="@+id/newContactCountry"
             android:layout_alignEnd="@+id/newContactCountry" />
 
@@ -103,7 +107,7 @@
             android:inputType="textCapSentences|textMultiLine"
             android:ems="10"
             android:id="@+id/newContactDescription"
-            android:hint="Description"
+            android:hint="@string/new_contact_hint_description"
             android:paddingBottom="16dp"
             android:layout_below="@+id/newContactLatLng"
             android:layout_alignLeft="@+id/newContactLatLng"
@@ -113,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="latitude , longitude"
+            android:hint="@string/new_contact_hint_latitude_longitude"
             android:paddingBottom="16dp"
             android:id="@+id/newContactLatLng"
             android:textAlignment="center"
@@ -128,7 +132,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/newContactEmail"
-            android:hint="e-mail@domain.com"
+            android:hint="@string/new_contact_hint_e_mail_domain_com"
             android:layout_below="@+id/newContactPhone"
             android:layout_alignLeft="@+id/newContactPhone"
             android:layout_alignStart="@+id/newContactPhone"

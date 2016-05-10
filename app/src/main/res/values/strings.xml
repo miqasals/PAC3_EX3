@@ -8,4 +8,18 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_new_contact">New Contact</string>
     <string name="google_api_key">AIzaSyCHsdIAUDE47DHt5pbmLoQkIY6OprOA5fE</string>
+    <string name="new_contact_no_addresses">Country and city data not get. Please write it or try again please.</string>
+    <string name="personal_data_date_format_error">Not set</string>
+    <string name="contact_detail_call_button_description">call button</string>
+    <string name="new_contact_hint_name">Name</string>
+    <string name="new_contact_hint_birthday">01/01/2016</string>
+    <string name="new_contact_hint_phone">(000)-000-0000</string>
+    <string name="new_contact_description_location_button">Edit location button</string>
+    <string name="new_contact_hint_country">Country</string>
+    <string name="new_contact_hint_city">City</string>
+    <string name="new_contact_hint_description">Description</string>
+    <string name="new_contact_hint_latitude_longitude">latitude , longitude</string>
+    <string name="new_contact_hint_e_mail_domain_com">e-mail@domain.com</string>
+    <string name="new_contact_description_contact_new_image">Contact new image</string>
+    <string name="location_permissions_denied">Location use not allowed. Check location settings</string>
 </resources>

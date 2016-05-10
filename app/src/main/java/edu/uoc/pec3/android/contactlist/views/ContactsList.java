@@ -1,13 +1,10 @@
 package edu.uoc.pec3.android.contactlist.views;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,8 +13,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import edu.uoc.pec3.android.contactlist.adapters.ContactListAdapter;
 import edu.uoc.pec3.android.contactlist.R;
+import edu.uoc.pec3.android.contactlist.adapters.ContactListAdapter;
 import edu.uoc.pec3.android.contactlist.manager.FirebaseContactManager;
 import edu.uoc.pec3.android.contactlist.model.Contact;
 
@@ -45,10 +42,12 @@ public class ContactsList extends AppCompatActivity {
         ContactListAdapter contactListAdapter = new ContactListAdapter(this, R.id.contact_list, contacts);
         mListView.setAdapter(contactListAdapter);
 
+        // Initiate the listener for manage the click on any element of the list.
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getBaseContext(), ContactDetail.class);
+                // The contactId is passed to the next Activity with the intent.
                 intent.putExtra("contactId", contacts.get(position).getObjectId());
                 startActivity(intent);
             }
@@ -78,6 +77,10 @@ public class ContactsList extends AppCompatActivity {
     }
 
 
+    /**
+     * The back button behaviour is modified enabling the option to exit the application. Before exit
+     * it require user confirmation.
+     */
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

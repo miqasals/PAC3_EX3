@@ -5,18 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
-
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
- -->
-    <!--
-     the android:name=".ContactListApplication genterate an instance of
-    the class for maintain a global state.
-    -->
+
     <application
         android:name=".ContactListApplication"
         android:allowBackup="true"
@@ -25,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Google API key for Android Places. -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBe9pjZCcG3UcJJ4Bi_2E2A15WNdGAOopg"/>
@@ -35,6 +24,7 @@
 
         <activity
             android:name=".views.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,12 +32,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.ContactsList" />
-        <activity android:name=".views.ContactDetail" />
+        <activity
+            android:name=".views.ContactsList"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".views.ContactDetail"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".views.NewContact"
             android:label="New Contact"
-            android:windowSoftInputMode="adjustPan" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 

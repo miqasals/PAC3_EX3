@@ -108,6 +108,9 @@ public class ContactDetail extends FragmentActivity {
         }
 
 
+        /**
+         * Manages the pageTitleStrip text.
+         */
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position){
@@ -121,12 +124,14 @@ public class ContactDetail extends FragmentActivity {
                     return "No data";
             }
         }
-
     }
 
 
     /**
-     *
+     * Launch an implicit intent to the call dialer. We choose the dialer action
+     * because there is no permissions needed.
+     * If the user touch the call button next to the phone number this
+     * function is executed.
      */
     public void call(View view){
         Uri tel = Uri.parse("tel:" + contact.getPhone());

@@ -29,25 +29,19 @@ import edu.uoc.pec3.android.contactlist.model.Contact;
  */
 public class ContactDetailPageFragment extends Fragment {
 
-    /**
-     * The argument key for the page number this fragment represents.
-     */
+    // CONSTANTS key strings for pass arguments to the fragments
     public static final String ARG_PAGE = "page";
     public static final String LONG = "longitude";
     public static final String LAT = "latitude";
     public static final String DESCRIPTION  ="description";
     public static final String CONTACT_DATA = "contactData";
 
-
+    // CONSTANTS constant text for the static map url
     public static final String ZOOM = "zoom=8";
     public static final String KEY = "key=AIzaSyBe9pjZCcG3UcJJ4Bi_2E2A15WNdGAOopg";
     public static final String TYPE = "maptype=terrain";
 
-
-    /**
-     * The fragment's page number, which is set to the argument value for
-     * {@link #ARG_PAGE}.
-     */
+    // Global fields.
     private int mPageNumber;
     private Double longitude;
     private Double latitude;
@@ -99,6 +93,8 @@ public class ContactDetailPageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Recover all the arguments
         Bundle args = getArguments();
         mPageNumber = args.getInt(ARG_PAGE);
         contactData = args.getStringArrayList(CONTACT_DATA);
@@ -111,14 +107,16 @@ public class ContactDetailPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView;
         /**
-         * Depending the page number inflates the view that corresponds.
+         * Depending the page number inflates the view that corresponds on the rootView view object.
          */
         switch (mPageNumber){
             case 0:
                 // Personal data
                 rootView  = (ViewGroup) inflater
                         .inflate(R.layout.fragment_contact_detail_personal_data, container, false);
+                // Get the reference of the elements after the view is inflated.
                 ListView listView = (ListView) rootView.findViewById(R.id.contact_detail_personal_data_list);
+                // Create the adapter and set the list data.
                 PersonalDataListAdapter adapter = new PersonalDataListAdapter(rootView.getContext(),
                         R.id.contact_detail_personal_data_list, contactData);
                 listView.setAdapter(adapter);
@@ -127,21 +125,25 @@ public class ContactDetailPageFragment extends Fragment {
                 // Description
                 rootView  = (ViewGroup) inflater
                         .inflate(R.layout.fragment_contact_detail_description, container, false);
+                // Get the reference and set the text of the textView.
                 ((TextView) rootView.findViewById(R.id.contact_detail_description_text)).setText(description);
                 break;
             case 2:
                 // Location
                 rootView  = (ViewGroup) inflater
                         .inflate(R.layout.fragment_contact_detail_location, container, false);
+
+                // Get the reference of the ImageView.
                 ImageView map = (ImageView) rootView.findViewById(R.id.locationMap);
 
+                // Construct the static map url with the contact location data.
                 String locationTxt = latitude + "," + longitude;
                 String marker = "markers=color:red%7Clabel:S%7C" + locationTxt;
-
                 String url = "https://maps.googleapis.com/maps/api/staticmap?center="
                         + locationTxt + "&" + ZOOM + "&" + "size=400x400&"
                         + TYPE + "&" + marker + "&" + KEY;
 
+                // Set the view with the map from google api and adjust the dimensions to the display space.
                 Picasso.with(rootView.getContext()).load(url).fit().centerCrop().into(map);
                 break;
             default:
